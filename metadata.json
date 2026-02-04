@@ -1,0 +1,7 @@
+{
+  "name": "Clicki Agency - Digital Excellence",
+  "description": "High-end creative agency specializing in web design, social media, branding, and photography with a bold black and pink aesthetic.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
