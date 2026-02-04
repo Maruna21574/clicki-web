@@ -29,9 +29,9 @@ export const Footer: React.FC<{ onNavigate: (page: Page) => void }> = ({ onNavig
             <a href="#" className="block text-gray-500 hover:text-[#F43182] transition-colors text-xs font-bold uppercase tracking-widest">LinkedIn</a>
           </div>
           <div className="space-y-4">
-            <span className="text-white font-black text-[10px] tracking-widest uppercase block mb-6">ADRESA</span>
+            <span className="text-white font-black text-[10px] tracking-widest uppercase block mb-6">KONTAKT</span>
             <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">Bratislava, Slovensko</p>
-            <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">hello@clicki.sk</p>
+            <a href="mailto:info@clicki.sk" className="block text-gray-500 hover:text-[#F43182] transition-colors text-xs font-bold uppercase tracking-widest">info@clicki.sk</a>
           </div>
         </div>
       </div>
