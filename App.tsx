@@ -6,7 +6,6 @@ import { ServicesDetail } from './pages/ServicesDetail';
 import { PortfolioDetail } from './pages/PortfolioDetail';
 import { Pricing } from './pages/Pricing';
 import { Footer } from './components/Footer';
-import { AIAgent } from './components/AIAgent';
 import { Contact } from './components/Contact';
 
 export type Page = 'home' | 'services' | 'portfolio' | 'pricing' | 'contact';
@@ -37,8 +36,7 @@ const App: React.FC = () => {
       </main>
       <Footer onNavigate={setCurrentPage} />
       
-      {/* AI Assistant Floating UI */}
-      <AIAgent />
+
 
       {/* Global Aesthetic Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
