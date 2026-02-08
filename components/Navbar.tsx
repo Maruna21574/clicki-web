@@ -123,7 +123,7 @@ export const Navbar: React.FC = () => {
           </Link>
           <Link
             to="/kontakt"
-            className="px-4 py-2 bg-[#F43182] text-white rounded-full text-sm font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105"
+            className="px-4 py-2 bg-[#F43182] text-white rounded-full text-sm font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 lg:px-4 lg:py-2 md:px-3 md:py-1.5 sm:px-2 sm:py-1 text-sm sm:text-xs"
             onClick={() => setMobileOpen(false)}
           >
             KONTAKT

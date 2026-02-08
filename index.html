@@ -49,6 +49,11 @@
             z-index: 9999;
             transition: transform 0.1s ease, background 0.2s;
         }
+        @media (max-width: 1024px) {
+            .cursor-dot, .cursor-outline {
+                display: none !important;
+            }
+        }
         .cursor-outline {
             width: 40px;
             height: 40px;
