@@ -4,11 +4,11 @@ import { LiIcon } from '../components/LiIcon';
 
 export const Pricing: React.FC = () => {
   return (
-    <div className="bg-black min-h-screen pt-40 pb-40 px-6 lg:px-20 overflow-hidden text-[#F43182]">
+    <div className="bg-black min-h-screen pt-80 pb-40 px-6 lg:px-20 overflow-hidden text-[#F43182]">
       <div className="max-w-[1600px] mx-auto">
         {/* Header Section */}
         <div className="mb-32 reveal text-left">
-          <h1 className="font-giaza text-[12vw] leading-none text-white font-black italic mb-4">CENNÍK.</h1>
+          <h1 className="font-giaza text-[12vw] leading-[0.85] text-white font-black uppercase mb-6">CENNÍK.</h1>
           <h2 className="text-[#F43182] font-black tracking-[0.3em] text-3xl uppercase mb-8">Koľko stojí klik?</h2>
           <p className="text-gray-400 text-xl md:text-2xl font-medium leading-relaxed uppercase tracking-wide max-w-2xl">
             Každý projekt je trochu iný, ale orientačne:

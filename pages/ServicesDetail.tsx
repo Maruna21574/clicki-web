@@ -70,10 +70,10 @@ export const ServicesDetail: React.FC = () => {
   const [activeSubService, setActiveSubService] = useState<{serviceId: string, subName: string} | null>(null);
 
   return (
-    <div className="bg-black min-h-screen pt-40 pb-20 px-6 lg:px-20 overflow-hidden">
+    <div className="bg-black min-h-screen pt-80 pb-20 px-6 lg:px-20 overflow-hidden">
       <div className="max-w-[1600px] mx-auto">
         <div className="mb-24 reveal">
-            <h1 className="font-giaza text-[10vw] leading-none text-white font-black italic">SLUŽBY.</h1>
+            <h1 className="font-giaza text-[10vw] leading-[0.85] text-white font-black uppercase mb-6">SLUŽBY.</h1>
             <p className="text-[#F43182] font-black tracking-[0.5em] text-sm uppercase mt-4">Naša expertíza pre váš rast</p>
         </div>
 

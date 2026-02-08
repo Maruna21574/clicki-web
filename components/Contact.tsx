@@ -3,7 +3,7 @@ import React from 'react';
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-20 px-6 bg-black min-h-screen">
+    <section id="contact" className="pt-80 pb-20 px-6 bg-black min-h-screen">
       <div className="max-w-[1440px] mx-auto">
         
         {/* Quick Contact Bar - "Hneď na začiatok" */}
@@ -49,9 +49,8 @@ export const Contact: React.FC = () => {
         {/* Main Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <div className="reveal">
-            <h2 className="font-giaza text-7xl md:text-9xl text-white mb-10 leading-[0.9]">
-              Poďme <span className="text-[#F43182] italic">kliknúť</span> <br />
-              tvoj projekt.
+            <h2 className="font-giaza text-[12vw] leading-[0.85] text-white font-black uppercase mb-6">
+              KONTAKT.
             </h2>
             
             <p className="text-gray-400 text-xl md:text-2xl font-medium leading-relaxed uppercase tracking-wider max-w-xl mb-12">

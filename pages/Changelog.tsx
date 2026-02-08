@@ -22,11 +22,11 @@ export const Changelog: React.FC = () => {
   ];
   const progress = Math.round((done.length / (done.length + todo.length)) * 100);
   return (
-    <div className="pt-24 px-4 min-h-screen bg-gradient-to-br from-black via-[#181824] to-[#23233a] text-white flex flex-col items-center">
+    <div className="pt-80 md:pt-100 px-4 min-h-screen bg-gradient-to-br from-black via-[#181824] to-[#23233a] text-white flex flex-col items-center">
       <div className="w-full max-w-2xl bg-[#11111a] rounded-3xl shadow-2xl p-10 mt-8 border border-[#23233a]/60 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#F43182]/60 to-[#fbb6ce]/20 animate-pulse" />
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 mt-2">
-          <h1 className="font-giaza text-5xl tracking-tight text-[#F43182] mb-2 md:mb-0">Changelog</h1>
+          <h1 className="font-giaza text-5xl tracking-tight text-[#F43182] mb-6 uppercase leading-[0.85] font-black">CHANGELOG.</h1>
           <span className="text-xs text-gray-400 font-mono bg-[#23233a] rounded px-3 py-1 border border-[#F43182]/30">Aktualizácia ku dňu: {updatedAt}</span>
         </div>
         <p className="mb-8 text-lg text-gray-300 text-center font-light">Tento produkt je aktívne vyvíjaný. Sledujte, čo je nové a čo pripravujeme!</p>

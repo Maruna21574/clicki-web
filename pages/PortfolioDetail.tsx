@@ -89,11 +89,11 @@ export const PortfolioDetail: React.FC = () => {
       );
 
   return (
-    <div className="bg-black min-h-screen pt-40 pb-40 px-6 lg:px-20 overflow-hidden text-[#F43182]">
+    <div className="bg-black min-h-screen pt-80 pb-40 px-6 lg:px-20 overflow-hidden text-[#F43182]">
       <div className="max-w-[1600px] mx-auto">
         {/* Header Section */}
         <div className="mb-24 reveal">
-            <h1 className="font-giaza text-[12vw] leading-none text-white font-black italic mb-2">PORTFÓLIO.</h1>
+            <h1 className="font-giaza text-[12vw] leading-[0.85] text-white font-black uppercase mb-6">PORTFÓLIO.</h1>
             <h2 className="text-[#F43182] font-black tracking-[0.3em] text-2xl uppercase mb-8">Naše kliky v praxi</h2>
             
             <div className="max-w-4xl space-y-8">
@@ -137,8 +137,6 @@ export const PortfolioDetail: React.FC = () => {
                         </button>
                     )}
                 </div>
-
-                <p className="text-[#F43182] font-giaza italic text-4xl pt-10 tracking-tight">CLICKNI A KONTAKTUJ NÁS</p>
             </div>
         </div>
 
