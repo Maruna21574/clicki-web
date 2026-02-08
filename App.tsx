@@ -1,5 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { ServicesDetail } from './pages/ServicesDetail';
@@ -9,40 +11,27 @@ import { Footer } from './components/Footer';
 import { Contact } from './components/Contact';
 import { Changelog } from './pages/Changelog';
 
-export type Page = 'home' | 'services' | 'portfolio' | 'pricing' | 'contact' | 'changelog';
-
 const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentPage]);
-
-  const renderPage = () => {
-    switch(currentPage) {
-      case 'home': return <Home onNavigate={setCurrentPage} />;
-      case 'services': return <ServicesDetail />;
-      case 'portfolio': return <PortfolioDetail />;
-      case 'pricing': return <Pricing />;
-      case 'contact': return <div className="pt-20"><Contact /></div>;
-      case 'changelog': return <Changelog onNavigate={setCurrentPage} />;
-      default: return <Home onNavigate={setCurrentPage} />;
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-black overflow-hidden flex flex-col">
-      <Navbar currentPage={currentPage} onNavigate={setCurrentPage} />
-      <main className="flex-grow">
-        {renderPage()}
-      </main>
-      <Footer onNavigate={setCurrentPage} />
-      
-
-
-      {/* Global Aesthetic Overlay */}
-      <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
-    </div>
+    <Router>
+      <div className="min-h-screen bg-black overflow-hidden flex flex-col">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sluzby" element={<ServicesDetail />} />
+            <Route path="/portfolio" element={<PortfolioDetail />} />
+            <Route path="/cenik" element={<Pricing />} />
+            <Route path="/kontakt" element={<div className="pt-20"><Contact /></div>} />
+            <Route path="/changelog" element={<Changelog />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+        <Footer />
+        {/* Global Aesthetic Overlay */}
+        <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')]"></div>
+      </div>
+    </Router>
   );
 };
 

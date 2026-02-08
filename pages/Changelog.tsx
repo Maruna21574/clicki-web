@@ -1,11 +1,7 @@
 import React from 'react';
-import { Page } from '../App';
+import { Link } from 'react-router-dom';
 
-interface ChangelogProps {
-  onNavigate: (page: Page) => void;
-}
-
-export const Changelog: React.FC<ChangelogProps> = ({ onNavigate }) => {
+export const Changelog: React.FC = () => {
   // Aktualizácia ku dňu: 8. február 2026
   const updatedAt = '8. február 2026';
   const done = [
@@ -64,7 +60,7 @@ export const Changelog: React.FC<ChangelogProps> = ({ onNavigate }) => {
         </div>
         <div className="flex flex-col items-center mt-8">
           <span className="text-xs text-gray-400 mb-2 font-mono">Produkt je vo vývoji a pravidelne pribúdajú nové funkcie.</span>
-          <button onClick={() => onNavigate('home')} className="px-8 py-3 bg-[#F43182] text-white rounded-full hover:bg-white hover:text-black transition-all font-black w-full shadow-lg">Späť na úvod</button>
+          <Link to="/" className="px-8 py-3 bg-[#F43182] text-white rounded-full hover:bg-white hover:text-black transition-all font-black w-full shadow-lg text-center">Späť na úvod</Link>
         </div>
       </div>
     </div>

@@ -1,13 +1,8 @@
 
 import React from 'react';
-import { LiIcon } from '../components/LiIcon';
-import { Page } from '../App';
+import { Link } from 'react-router-dom';
 
-interface HomeProps {
-  onNavigate: (page: Page) => void;
-}
-
-export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
+export const Home: React.FC = () => {
   return (
     <div className="pt-20">
       {/* HERO SECTION */}
@@ -32,15 +27,15 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           </p>
           
           <div className="flex flex-col md:flex-row gap-10 items-start md:items-center">
-            <button 
-              onClick={() => onNavigate('contact' as Page)}
+            <Link 
+              to="/kontakt"
               className="group relative px-12 py-6 overflow-hidden bg-[#F43182] text-white rounded-full font-black uppercase tracking-widest transition-all duration-500 hover:pr-20"
             >
               <span className="relative z-10">Chcem byť vidieť</span>
               <div className="absolute right-0 top-0 h-full w-0 bg-white group-hover:w-16 transition-all duration-500 flex items-center justify-center">
                 <svg className="w-6 h-6 text-[#F43182]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </div>
-            </button>
+            </Link>
             <div className="max-w-md">
                 <p className="text-gray-200 font-medium leading-relaxed uppercase text-[10px] tracking-widest mb-4">
                     Sme CLICKI. Tvoríme vizuálne svety, ktoré v digitálnom priestore nielen prežívajú, ale dominujú.
@@ -136,16 +131,20 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                     Vaša vízia,<br />naša <span className="text-[#F43182]">exekúcia.</span>
                 </h2>
                 <div className="flex flex-col gap-6">
-                    {[
-                        "WEBOVÉ STRÁNKY NA MIERU",
-                        "SOCIAL MEDIA DOMINANCIA",
-                        "LOGO MANUÁLY A BRANDING",
-                        "PRODUKTOVÁ FOTOGRAFIA"
+                    {[ 
+                      "WEBOVÉ STRÁNKY NA MIERU",
+                      "SOCIAL MEDIA DOMINANCIA",
+                      "LOGO MANUÁLY A BRANDING",
+                      "PRODUKTOVÁ FOTOGRAFIA"
                     ].map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-6 group cursor-pointer" onClick={() => onNavigate('services')}>
-                            <LiIcon size={30} className="group-hover:rotate-12 transition-transform" />
-                            <span className="text-2xl font-giaza text-white group-hover:text-[#F43182] transition-colors">{item}</span>
-                        </div>
+                      <Link key={idx} to="/sluzby" className="flex items-center gap-6 group cursor-pointer">
+                        <img 
+                          src="/img/favicon_clicki.png" 
+                          alt="Service Icon" 
+                          className="w-8 h-8 object-contain group-hover:scale-110 transition-transform duration-300"
+                        />
+                        <span className="text-2xl font-giaza text-white group-hover:text-[#F43182] transition-colors">{item}</span>
+                      </Link>
                     ))}
                 </div>
             </div>
@@ -154,7 +153,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
                 <div className="absolute bottom-10 left-10 right-10 flex justify-between items-end">
                     <span className="font-giaza text-8xl text-[#F43182] opacity-50">01</span>
-                    <button onClick={() => onNavigate('services')} className="bg-white text-black px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-[#F43182] hover:text-white transition-all">Detaily</button>
+                    <Link to="/sluzby" className="bg-white text-black px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-[#F43182] hover:text-white transition-all">Detaily</Link>
                 </div>
             </div>
         </div>
@@ -172,12 +171,12 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             Napíš nám a poďme to rozbehnúť. Tvoj úspech začína jedným klikom.
           </p>
           
-          <button 
-            onClick={() => onNavigate('contact' as Page)}
+          <Link 
+            to="/kontakt"
             className="px-20 py-8 bg-white text-black rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-[#F43182] hover:text-white transition-all duration-700 transform hover:scale-110"
           >
             KONTAKTOVAŤ CLICKI
-          </button>
+          </Link>
         </div>
       </section>
     </div>

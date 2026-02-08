@@ -1,13 +1,14 @@
 
-import React from 'react';
-import { Page } from '../App';
 
-export const Footer: React.FC<{ onNavigate: (page: Page) => void }> = ({ onNavigate }) => {
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+export const Footer: React.FC = () => {
   return (
     <footer className="py-20 px-10 bg-black border-t border-white/5">
       <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row justify-between items-start gap-20">
         <div>
-          <button onClick={() => onNavigate('home')} className="font-giaza text-6xl font-black text-[#F43182] mb-6">CLICKI</button>
+          <Link to="/" className="font-giaza text-6xl font-black text-[#F43182] mb-6 block">CLICKI</Link>
           <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px] max-w-xs">
             Vytvárame digitálnu budúcnosť pre značky, ktoré sa neboja vyniknúť.
           </p>
@@ -16,11 +17,9 @@ export const Footer: React.FC<{ onNavigate: (page: Page) => void }> = ({ onNavig
         <div className="grid grid-cols-2 md:grid-cols-3 gap-20">
           <div className="space-y-4">
             <span className="text-white font-black text-[10px] tracking-widest uppercase block mb-6">STRÁNKY</span>
-            {['services', 'portfolio', 'pricing'].map(p => (
-                <button key={p} onClick={() => onNavigate(p as Page)} className="block text-gray-500 hover:text-[#F43182] transition-colors text-xs font-bold uppercase tracking-widest">
-                    {p === 'services' ? 'Služby' : p === 'portfolio' ? 'Portfólio' : 'Cenník'}
-                </button>
-            ))}
+            <Link to="/sluzby" className="block text-gray-500 hover:text-[#F43182] transition-colors text-xs font-bold uppercase tracking-widest">Služby</Link>
+            <Link to="/portfolio" className="block text-gray-500 hover:text-[#F43182] transition-colors text-xs font-bold uppercase tracking-widest">Portfólio</Link>
+            <Link to="/cenik" className="block text-gray-500 hover:text-[#F43182] transition-colors text-xs font-bold uppercase tracking-widest">Cenník</Link>
           </div>
           <div className="space-y-4">
             <span className="text-white font-black text-[10px] tracking-widest uppercase block mb-6">SOCIÁLNE SIETE</span>
