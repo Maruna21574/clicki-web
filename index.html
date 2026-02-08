@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLICKI | Premium Digital Agency</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon_clicki.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,9 +20,13 @@
         body {
             background-color: var(--bg-black);
             color: var(--silver);
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             overflow-x: hidden;
             cursor: none;
+        }
+        /* Hide default cursor for all clickable elements too */
+        button, a, [role="button"], .cursor-pointer {
+            cursor: none !important;
         }
         .font-giaza {
             font-family: 'Playfair Display', serif;
@@ -29,7 +34,7 @@
         }
         .text-clicki { color: var(--primary-pink); }
         .bg-clicki { background-color: var(--primary-pink); }
-        
+
         /* Custom Cursor */
         .cursor-dot {
             width: 8px;
@@ -39,7 +44,7 @@
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
-            transition: transform 0.1s ease;
+            transition: transform 0.1s ease, background 0.2s;
         }
         .cursor-outline {
             width: 40px;
@@ -49,7 +54,19 @@
             border-radius: 50%;
             pointer-events: none;
             z-index: 9998;
-            transition: transform 0.15s ease, opacity 0.3s ease;
+            transition: transform 0.15s ease, opacity 0.3s ease, border 0.2s;
+        }
+        /* Custom pointer state */
+        .cursor-pointer-active .cursor-dot {
+            width: 18px;
+            height: 18px;
+            background: white;
+            box-shadow: 0 0 0 4px var(--primary-pink);
+        }
+        .cursor-pointer-active .cursor-outline {
+            width: 60px;
+            height: 60px;
+            border: 2px solid white;
         }
 
         /* Animations */
@@ -106,6 +123,27 @@
         });
         document.addEventListener('mousedown', () => outline.style.transform = 'scale(0.8)');
         document.addEventListener('mouseup', () => outline.style.transform = 'scale(1)');
+
+        // Custom pointer effect for clickable elements
+        function setPointerActive(active) {
+            if (active) {
+                document.body.classList.add('cursor-pointer-active');
+            } else {
+                document.body.classList.remove('cursor-pointer-active');
+            }
+        }
+        // Add listeners to all pointer elements
+        function updatePointerListeners() {
+            const selectors = ['button', 'a', '[role="button"]', '.cursor-pointer'];
+            document.querySelectorAll(selectors.join(',')).forEach(el => {
+                el.addEventListener('mouseenter', () => setPointerActive(true));
+                el.addEventListener('mouseleave', () => setPointerActive(false));
+            });
+        }
+        updatePointerListeners();
+        // In case of dynamic content, observe DOM changes
+        const observer = new MutationObserver(updatePointerListeners);
+        observer.observe(document.body, { childList: true, subtree: true });
     </script>
 </body>
 </html>
