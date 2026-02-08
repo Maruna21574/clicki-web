@@ -46,13 +46,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
         </button>
 
         <div className="hidden lg:flex items-center gap-12 font-bold uppercase tracking-[0.3em] text-[10px]">
-          {['services', 'portfolio', 'pricing'].map((page) => (
+          {['services', 'portfolio', 'pricing', 'changelog'].map((page) => (
             <button
               key={page}
               onClick={() => onNavigate(page as Page)}
               className={`transition-all duration-300 relative group ${currentPage === page ? 'text-[#F43182]' : 'text-white hover:text-[#F43182]'}`}
             >
-              {page === 'services' ? 'Služby' : page === 'portfolio' ? 'Portfólio' : 'Cenník'}
+              {page === 'services' ? 'Služby' : page === 'portfolio' ? 'Portfólio' : page === 'pricing' ? 'Cenník' : 'Changelog'}
               <span className={`absolute -bottom-1 left-0 h-[1px] bg-[#F43182] transition-all duration-500 ${currentPage === page ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </button>
           ))}

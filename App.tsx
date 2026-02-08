@@ -7,8 +7,9 @@ import { PortfolioDetail } from './pages/PortfolioDetail';
 import { Pricing } from './pages/Pricing';
 import { Footer } from './components/Footer';
 import { Contact } from './components/Contact';
+import { Changelog } from './pages/Changelog';
 
-export type Page = 'home' | 'services' | 'portfolio' | 'pricing' | 'contact';
+export type Page = 'home' | 'services' | 'portfolio' | 'pricing' | 'contact' | 'changelog';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -24,6 +25,7 @@ const App: React.FC = () => {
       case 'portfolio': return <PortfolioDetail />;
       case 'pricing': return <Pricing />;
       case 'contact': return <div className="pt-20"><Contact /></div>;
+      case 'changelog': return <Changelog onNavigate={setCurrentPage} />;
       default: return <Home onNavigate={setCurrentPage} />;
     }
   };
