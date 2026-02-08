@@ -166,7 +166,7 @@ export const PortfolioDetail: React.FC = () => {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
           {filteredProjects.map((p) => (
             <div 
               key={p.id} 
@@ -175,18 +175,18 @@ export const PortfolioDetail: React.FC = () => {
             >
               <div className="aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 group-hover:border-[#F43182]/40 transition-all duration-700">
                 <img 
-                    src={p.img} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
-                    alt={p.title}
+                  src={p.img} 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
+                  alt={p.title}
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                    <span className="text-[#F43182] font-black tracking-widest text-[10px] uppercase mb-2">{p.cat}</span>
-                    <h3 className="font-giaza text-3xl text-white tracking-tighter mb-4">{p.title}</h3>
-                    <div className="flex flex-wrap gap-2">
-                        {p.tags.map(t => (
-                            <span key={t} className="text-[8px] border border-white/20 px-2 py-1 rounded-full text-white/60 uppercase">{t}</span>
-                        ))}
-                    </div>
+                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-start p-8">
+                  <span className="text-[#F43182] font-black tracking-widest text-[10px] uppercase mb-2">{p.cat}</span>
+                  <h3 className="font-giaza text-3xl text-white tracking-tighter mb-4">{p.title}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {p.tags.map(t => (
+                      <span key={t} className="text-xs border border-[#F43182] bg-[#F43182]/20 px-3 py-1 rounded-full text-white uppercase font-bold">{t}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
               

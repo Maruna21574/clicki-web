@@ -10,7 +10,7 @@ import { Pricing } from './pages/Pricing';
 import { Footer } from './components/Footer';
 import { Contact } from './components/Contact';
 import { Changelog } from './pages/Changelog';
-import { PortfolioProjectDetail } from './pages/PortfolioProjectDetail';
+
 
 
 function ScrollToTop() {
@@ -32,7 +32,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/sluzby" element={<ServicesDetail />} />
             <Route path="/portfolio" element={<PortfolioDetail />} />
-            <Route path="/portfolio/:slug" element={<PortfolioProjectDetail />} />
+         
             <Route path="/cenik" element={<Pricing />} />
             <Route path="/kontakt" element={<div className="pt-20"><Contact /></div>} />
             <Route path="/changelog" element={<Changelog />} />
