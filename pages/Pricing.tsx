@@ -29,14 +29,14 @@ export const Pricing: React.FC = () => {
                 <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Štartovacie riešenie</p>
                 <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
                   <span className="text-white text-xl font-bold uppercase tracking-tighter">Jednoduchý web</span>
-                  <span className="text-2xl font-giaza italic">od 990 €</span>
+                  <span className="text-2xl font-giaza italic">od 490 €</span>
                 </div>
               </div>
               <div className="space-y-2">
                 <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Pre firmy</p>
                 <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
                   <span className="text-white text-xl font-bold uppercase tracking-tighter">Firemný web</span>
-                  <span className="text-2xl font-giaza italic">od 2490 €</span>
+                  <span className="text-2xl font-giaza italic">od 890 €</span>
                 </div>
               </div>
               <div className="space-y-2">
@@ -60,14 +60,14 @@ export const Pricing: React.FC = () => {
                 <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Mesačný paušál</p>
                 <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
                   <span className="text-white text-xl font-bold uppercase tracking-tighter">Správa profilu</span>
-                  <span className="text-2xl font-giaza italic text-right leading-none">od 490 €<br/><small className="text-[10px] not-italic opacity-50 uppercase font-black">/ mesiac</small></span>
+                  <span className="text-2xl font-giaza italic text-right leading-none">od 190 €<br/><small className="text-[10px] not-italic opacity-50 uppercase font-black">/ mesiac</small></span>
                 </div>
               </div>
               <div className="space-y-2">
                 <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Video obsah</p>
                 <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
                   <span className="text-white text-xl font-bold uppercase tracking-tighter">Reels balíčky</span>
-                  <span className="text-2xl font-giaza italic">od 690 €</span>
+                  <span className="text-2xl font-giaza italic">od 390 €</span>
                 </div>
               </div>
             </div>
