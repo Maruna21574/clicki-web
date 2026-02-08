@@ -66,54 +66,6 @@ const projects: Project[] = [
       desc: "Webová stránka pre spoločnosť targos.sk – prehľad služieb, referencie a moderný dizajn.",
       tags: ["Web", "Služby", "Referencie", "Dizajn"]
     },
-    { 
-      id: "03",
-      title: "ADVITERRA", 
-      cat: "CORPORATE", 
-      img: "https://images.unsplash.com/photo-1554774853-719586f82d77?q=80&w=800",
-      desc: "Moderný vizuál pre poradenskú spoločnosť, kde profesionalita stretáva dizajn.",
-      tags: ["UI/UX", "Identity", "Logo"]
-    },
-    { 
-      id: "04",
-      title: "KARAVAN 365", 
-      cat: "SOCIAL GROWTH", 
-      img: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=800",
-      desc: "Správa sociálnych sietí a tvorba obsahu pre najväčšiu požičovňu karavanov.",
-      tags: ["Content", "Reels", "Strategy"]
-    },
-    { 
-      id: "05",
-      title: "LOKAL ROASTERY", 
-      cat: "PRODUCTION", 
-      img: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=800",
-      desc: "Produktová fotografia a video produkcia pre lokálnu značku kávy.",
-      tags: ["Photo", "Video", "Post-prod"]
-    },
-    { 
-      id: "06",
-      title: "URBAN STYLE", 
-      cat: "DESIGN", 
-      img: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800",
-      desc: "Vizuálny koncept pre streetwear značku s dôrazom na typografiu.",
-      tags: ["Branding", "Print", "Social"]
-    },
-    { 
-      id: "07",
-      title: "DIVADLO ŽILINA", 
-      cat: "BRANDING", 
-      img: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=800",
-      desc: "Minimalistická identita pre kultúrnu inštitúciu s historickým presahom.",
-      tags: ["Identity", "Typography", "Art"]
-    },
-    { 
-      id: "08",
-      title: "TERMÍNOVKA", 
-      cat: "APP DESIGN", 
-      img: "https://images.unsplash.com/photo-1551288049-bbbda5366392?q=80&w=800",
-      desc: "Návrh rozhrania pre finančnú aplikáciu novej generácie.",
-      tags: ["Mobile App", "UI/UX", "Figma"]
-    }
 ];
 
 export const PortfolioDetail: React.FC = () => {

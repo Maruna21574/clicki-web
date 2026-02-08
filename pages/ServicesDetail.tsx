@@ -84,21 +84,21 @@ export const ServicesDetail: React.FC = () => {
                 onMouseEnter={() => setActiveId(service.id)}
                 onMouseLeave={() => setActiveId(null)}
                 onClick={() => setExpandedId(expandedId === service.id ? null : service.id)}
-                className="group flex flex-col lg:flex-row items-center justify-between py-12 lg:py-20 border-b border-white/10 cursor-pointer transition-all duration-500 hover:px-8 bg-transparent relative z-20"
+                className="group flex flex-col lg:flex-row items-start lg:items-center justify-between py-8 sm:py-10 md:py-12 lg:py-20 border-b border-white/10 cursor-pointer transition-all duration-500 hover:px-2 sm:hover:px-4 md:hover:px-8 bg-transparent relative z-20 text-left"
               >
                 {/* ID and Title */}
-                <div className="flex items-start gap-10">
-                  <span className="font-giaza text-[#F43182] text-xl mt-4">/ {service.id}</span>
-                  <h2 className="font-giaza text-5xl md:text-7xl lg:text-[7vw] font-black text-white leading-none uppercase group-hover:italic transition-all duration-500">
+                <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-6 md:gap-10 w-full lg:w-auto">
+                  <span className="font-giaza text-[#F43182] text-base sm:text-xl mt-2 sm:mt-4">/ {service.id}</span>
+                  <h2 className="font-giaza text-lg sm:text-2xl md:text-5xl lg:text-[4vw] font-black text-white leading-tight uppercase transition-all duration-500">
                     {service.title}
                   </h2>
                 </div>
 
                 {/* Right Side Info */}
-                <div className="flex flex-col items-end gap-2 text-right mt-8 lg:mt-0">
+                <div className="flex flex-col items-start lg:items-end gap-1 sm:gap-2 text-left lg:text-right mt-4 sm:mt-8 lg:mt-0">
                   <span className="text-gray-500 font-black text-[10px] tracking-[0.2em] uppercase">{service.category}</span>
-                  <div className="flex items-center gap-2 group/btn">
-                    <span className="text-[#F43182] font-bold text-sm tracking-widest uppercase transition-all group-hover/btn:mr-2">
+                  <div className="flex items-center gap-1 sm:gap-2 group/btn">
+                    <span className="text-[#F43182] font-bold text-xs sm:text-sm tracking-widest uppercase transition-all group-hover/btn:mr-2">
                         {expandedId === service.id ? 'Zavrieť' : 'Zobraziť'}
                     </span>
                     <svg className={`w-4 h-4 text-[#F43182] transition-transform duration-500 ${expandedId === service.id ? 'rotate-180' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +108,7 @@ export const ServicesDetail: React.FC = () => {
                 </div>
 
                 {/* Static Image Preview - Appears on hover in a fixed spot for the row */}
-                <div className={`absolute right-1/4 top-1/2 -translate-y-1/2 pointer-events-none z-[30] transition-all duration-700 w-[200px] h-[280px] overflow-hidden rounded-xl border border-white/10 ${activeId === service.id ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-95 translate-x-10'}`}>
+                <div className={`hidden lg:block absolute right-1/4 top-1/2 -translate-y-1/2 pointer-events-none z-[30] transition-all duration-700 w-[200px] h-[280px] overflow-hidden rounded-xl border border-white/10 ${activeId === service.id ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-95 translate-x-10'}`}> 
                     <img 
                         src={service.image} 
                         className="w-full h-full object-cover grayscale" 
@@ -116,37 +116,45 @@ export const ServicesDetail: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-black/20"></div>
                 </div>
+                {/* Mobile image preview */}
+                <div className={`block lg:hidden w-full mt-4 transition-all duration-700 ${activeId === service.id ? 'opacity-100 scale-100' : 'opacity-80 scale-95'}`}>
+                  <img 
+                    src={service.image}
+                    className="w-full h-40 object-cover grayscale rounded-xl border border-white/10"
+                    alt={service.title}
+                  />
+                </div>
               </div>
 
               {/* Expanded Detail (Sub-services) */}
-              <div className={`overflow-hidden transition-all duration-700 ease-in-out bg-[#050505]/50 ${expandedId === service.id ? 'max-h-[1000px] opacity-100 py-16' : 'max-h-0 opacity-0'}`}>
+                <div className={`overflow-hidden transition-all duration-700 ease-in-out bg-[#050505]/50 ${expandedId === service.id ? 'max-h-[1000px] opacity-100 py-10 sm:py-12 md:py-16 px-4 sm:px-8 md:px-12' : 'max-h-0 opacity-0 px-4 sm:px-8 md:px-12'}`}>
                 <div className="lg:pl-32 pr-6">
-                    <p className="text-[#F43182] font-black text-[10px] tracking-[0.4em] uppercase mb-12 opacity-50">ZAMERANIE (KLIKNITE PRE DETAILY)</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                        {service.subServices.map((sub, i) => (
-                            <div 
-                                key={i} 
-                                className="flex flex-col gap-4 group/sub cursor-pointer"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    setActiveSubService(activeSubService?.subName === sub.name ? null : {serviceId: service.id, subName: sub.name});
-                                }}
-                            >
-                                <div className={`h-[1px] transition-all duration-700 ${activeSubService?.subName === sub.name ? 'w-full bg-[#F43182]' : 'w-8 bg-white/20 group-hover/sub:w-16 group-hover/sub:bg-[#F43182]'}`}></div>
-                                <span className={`text-sm font-bold tracking-[0.1em] uppercase transition-colors duration-500 ${activeSubService?.subName === sub.name ? 'text-[#F43182]' : 'text-white/60 group-hover/sub:text-white'}`}>
-                                    {sub.name}
-                                </span>
+                  <p className="text-[#F43182] font-black text-[10px] tracking-[0.4em] uppercase mb-12 opacity-50 text-left">ZAMERANIE (KLIKNITE PRE DETAILY)</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    {service.subServices.map((sub, i) => (
+                      <div 
+                        key={i} 
+                        className="flex flex-col gap-4 group/sub cursor-pointer text-left"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveSubService(activeSubService?.subName === sub.name ? null : {serviceId: service.id, subName: sub.name});
+                        }}
+                      >
+                        <div className={`h-[1px] transition-all duration-700 ${activeSubService?.subName === sub.name ? 'w-full bg-[#F43182]' : 'w-8 bg-white/20 group-hover/sub:w-16 group-hover/sub:bg-[#F43182]'}`}></div>
+                        <span className={`text-sm font-bold tracking-[0.1em] uppercase transition-colors duration-500 ${activeSubService?.subName === sub.name ? 'text-[#F43182]' : 'text-white/60 group-hover/sub:text-white'}`}>
+                          {sub.name}
+                        </span>
                                 
-                                <div className={`overflow-hidden transition-all duration-500 ${activeSubService?.subName === sub.name ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
-                                    <p className="text-gray-500 text-xs font-medium leading-relaxed uppercase tracking-wider">
-                                        {sub.desc}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                        <div className={`overflow-hidden transition-all duration-500 ${activeSubService?.subName === sub.name ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
+                          <p className="text-gray-500 text-xs font-medium leading-relaxed uppercase tracking-wider">
+                            {sub.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+                </div>
             </div>
           ))}
         </div>
