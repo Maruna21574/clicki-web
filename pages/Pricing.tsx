@@ -102,7 +102,7 @@ export const Pricing: React.FC = () => {
         {/* Footer CTA */}
         <div className="mt-40 border-t border-white/10 pt-20 flex flex-col items-center text-center space-y-12">
             <div className="flex items-center gap-4 text-3xl md:text-5xl font-giaza text-white italic">
-                <span className="text-4xl md:text-6xl">💡</span>
+                <span className="text-4xl md:text-6xl"></span>
                 Chceš presnú cenu? Napíš nám.
             </div>
             <button className="px-20 py-8 bg-[#F43182] text-white rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-white hover:text-black transition-all duration-700 transform hover:scale-110">
