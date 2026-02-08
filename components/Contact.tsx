@@ -49,10 +49,9 @@ export const Contact: React.FC = () => {
         {/* Main Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <div className="reveal">
-            <h2 className="font-giaza text-[12vw] leading-[0.85] text-white font-black uppercase mb-6">
+              <h2 className="font-giaza text-4xl md:text-6xl leading-tight text-white font-black uppercase mt-12 mb-6">
               KONTAKT.
             </h2>
-            
             <p className="text-gray-400 text-xl md:text-2xl font-medium leading-relaxed uppercase tracking-wider max-w-xl mb-12">
               Máš nápad, otázku alebo len tušíš, že tvoj web potrebuje refresh? 
               Ozvi sa – radi sa na to pozrieme.
@@ -63,6 +62,7 @@ export const Contact: React.FC = () => {
                     CLICKI – klik a ide sa.
                 </p>
             </div>
+          
           </div>
 
           <div className="bg-[#0a0a0a] border border-white/5 p-10 md:p-16 rounded-[3rem] relative reveal">
