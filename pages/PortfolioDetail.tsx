@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 interface Project {
   id: string;
+  slug?: string;
   title: string;
   cat: string;
   img: string;
@@ -13,19 +14,57 @@ interface Project {
 const projects: Project[] = [
     { 
       id: "01",
-      title: "HABESH COFFEE", 
-      cat: "BRANDING", 
-      img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800",
-      desc: "Komplexná rebrandová identita pre slovenskú pražiareň kávy. Od loga až po obaly produktov.",
-      tags: ["Logo", "Print", "Webdesign", "UX/UI"]
+      slug: "netacad-uniza",
+      title: "NetAcad Uniza", 
+      cat: "WEBY", 
+      img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800",
+      desc: "Webová platforma pre študentov a lektorov Cisco akadémie na Žilinskej univerzite. Moderný dizajn, prehľadné rozhranie a integrácia s e-learningom.",
+      tags: ["Web", "Uniza", "NetAcad", "UX/UI"]
     },
     { 
       id: "02",
-      title: "HAPPY WOK", 
-      cat: "E-COMMERCE", 
-      img: "https://images.unsplash.com/photo-1512058560366-cd242d4532be?q=80&w=800",
-      desc: "Ázijské potraviny a eshop s dôrazom na rýchlosť nákupu a vizuálnu sýtosť.",
-      tags: ["Web", "Marketing", "Ads"]
+      slug: "niluniza",
+      title: "NilUniza", 
+      cat: "WEBY", 
+      img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=800",
+      desc: "Informačný portál pre študentov a zamestnancov NilUniza. Dôraz na jednoduchosť, rýchlosť a dostupnosť informácií.",
+      tags: ["Web", "Uniza", "Intranet", "UX/UI"]
+    },
+    {
+      id: "09",
+      slug: "penzion-eso",
+      title: "Penzión Eso",
+      cat: "WEBY",
+      img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800",
+      desc: "Moderný web pre rodinný penzión v srdci prírody. Rezervácie, galéria a prehľadné informácie pre hostí.",
+      tags: ["Web", "Rezervácie", "Galéria", "UX/UI"]
+    },
+    {
+      id: "10",
+      slug: "extera-martin",
+      title: "Extera Martin",
+      cat: "WEBY",
+      img: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?q=80&w=800",
+      desc: "Webová prezentácia pre Extera Martin – odborníkov na vzdelávanie a kurzy. Dôraz na jednoduchosť a informovanosť.",
+      tags: ["Web", "Vzdelávanie", "Kurzy", "Prezentácia"]
+    },
+    {
+      id: "11",
+      slug: "stolarska-vyroba",
+      title: "Stolárska výroba",
+      cat: "WEBY",
+      img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=800",
+      desc: "Firemný web pre stolársku výrobu s portfóliom realizácií a kontaktným formulárom.",
+      tags: ["Web", "Portfólio", "Remeslo", "Kontakt"]
+    },
+    {
+      id: "12",
+      slug: "targos-sk",
+      title: "targos.sk",
+      cat: "WEBY",
+      img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=800",
+      desc: "Webová stránka pre spoločnosť targos.sk – prehľad služieb, referencie a moderný dizajn.",
+      tags: ["Web", "Služby", "Referencie", "Dizajn"]
     },
     { 
       id: "03",
@@ -81,10 +120,13 @@ export const PortfolioDetail: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState('všetko');
 
+  // Get unique categories from projects
+  const categories = Array.from(new Set(projects.map(p => p.cat)));
+
   const filteredProjects = filter === 'všetko' 
     ? projects 
     : projects.filter(p => 
-        p.cat.toLowerCase().includes(filter.toLowerCase()) || 
+        p.cat.toLowerCase() === filter.toLowerCase() || 
         p.tags.some(t => t.toLowerCase().includes(filter.toLowerCase()))
       );
 
@@ -102,40 +144,23 @@ export const PortfolioDetail: React.FC = () => {
                     Každý web, každá fotka a každý vizuál má jeden cieľ – fungovať.
                 </p>
                 
-                {/* Filters without emojis */}
+                {/* Dynamic category filters */}
                 <div className="flex flex-wrap gap-x-12 gap-y-6 pt-4 text-base font-bold uppercase tracking-[0.2em]">
-                    <button 
-                        onClick={() => setFilter('web')} 
-                        className={`transition-all hover:text-white ${filter === 'web' ? 'text-white underline underline-offset-8 decoration-2' : 'text-[#F43182]'}`}
+                  <button
+                    onClick={() => setFilter('všetko')}
+                    className={`transition-all hover:text-white ${filter === 'všetko' ? 'text-white underline underline-offset-8 decoration-2' : 'text-[#F43182]'}`}
+                  >
+                    zobraziť všetko
+                  </button>
+                  {categories.map(cat => (
+                    <button
+                      key={cat}
+                      onClick={() => setFilter(cat)}
+                      className={`transition-all hover:text-white ${filter === cat ? 'text-white underline underline-offset-8 decoration-2' : 'text-[#F43182]'}`}
                     >
-                        weby
+                      {cat}
                     </button>
-                    <button 
-                        onClick={() => setFilter('dizajn')} 
-                        className={`transition-all hover:text-white ${filter === 'dizajn' ? 'text-white underline underline-offset-8 decoration-2' : 'text-[#F43182]'}`}
-                    >
-                        dizajn
-                    </button>
-                    <button 
-                        onClick={() => setFilter('social')} 
-                        className={`transition-all hover:text-white ${filter === 'social' ? 'text-white underline underline-offset-8 decoration-2' : 'text-[#F43182]'}`}
-                    >
-                        sociálne siete
-                    </button>
-                    <button 
-                        onClick={() => setFilter('photo')} 
-                        className={`transition-all hover:text-white ${filter === 'photo' ? 'text-white underline underline-offset-8 decoration-2' : 'text-[#F43182]'}`}
-                    >
-                        fotografia
-                    </button>
-                    {filter !== 'všetko' && (
-                        <button 
-                            onClick={() => setFilter('všetko')}
-                            className="text-[#F43182]/40 hover:text-white transition-colors border-l border-white/10 pl-12"
-                        >
-                            zobraziť všetko
-                        </button>
-                    )}
+                  ))}
                 </div>
             </div>
         </div>
