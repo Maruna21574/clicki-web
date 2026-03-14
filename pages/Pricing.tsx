@@ -8,91 +8,88 @@ export const Pricing: React.FC = () => {
       <div className="max-w-[1600px] mx-auto">
         {/* Header Section */}
         <div className="mb-32 reveal text-left">
-          <h1 className="font-giaza text-[12vw] leading-[0.85] text-white font-black uppercase mb-6">CENNÍK.</h1>
-          <h2 className="text-[#F43182] font-black tracking-[0.3em] text-3xl uppercase mb-8">Koľko stojí klik?</h2>
+          <h1 className="text-[12vw] leading-[0.85] text-white font-black uppercase mb-6 font-sans">CENNÍK.</h1>
+          <h2 className="text-[#F43182] font-black tracking-[0.3em] text-3xl uppercase mb-8 font-sans">Koľko stojí klik?</h2>
           <p className="text-gray-400 text-xl md:text-2xl font-medium leading-relaxed uppercase tracking-wide max-w-2xl">
             Každý projekt je trochu iný, ale orientačne:
           </p>
         </div>
 
-        {/* Pricing Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20">
-          
+        {/* Pricing Content - sekcie pod seba */}
+        <div className="flex flex-col gap-12">
           {/* Webstránky */}
-          <div className="group space-y-10">
-            <div className="flex items-center gap-4">
-               <LiIcon size={32} />
-               <h3 className="text-white font-giaza text-4xl italic">Webstránky</h3>
+          <div className="rounded-3xl border border-[#F43182]/30 bg-[#18181b] p-10 flex flex-col gap-8 shadow-lg">
+            <div className="flex items-center gap-4 mb-2">
+              <LiIcon size={32} />
+              <h3 className="text-white text-4xl font-sans">Webstránky</h3>
             </div>
-            <div className="space-y-8 border-l border-white/10 pl-8">
-              <div className="space-y-2">
-                <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Štartovacie riešenie</p>
-                <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
-                  <span className="text-white text-xl font-bold uppercase tracking-tighter">Jednoduchý web</span>
-                  <span className="text-2xl font-giaza italic">od 490 €</span>
+            <div className="flex flex-col gap-6">
+              <div>
+                <p className="text-gray-500 font-black text-xs tracking-widest uppercase mb-1">Štartovacie riešenie</p>
+                <div className="flex justify-between items-end gap-4 border-b border-white/10 pb-3">
+                  <span className="text-white text-lg font-bold uppercase tracking-tighter">Jednoduchý web</span>
+                  <span className="text-2xl font-sans">od 490 €</span>
                 </div>
               </div>
-              <div className="space-y-2">
-                <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Pre firmy</p>
-                <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
-                  <span className="text-white text-xl font-bold uppercase tracking-tighter">Firemný web</span>
-                  <span className="text-2xl font-giaza italic">od 890 €</span>
+              <div>
+                <p className="text-gray-500 font-black text-xs tracking-widest uppercase mb-1">Pre firmy</p>
+                <div className="flex justify-between items-end gap-4 border-b border-white/10 pb-3">
+                  <span className="text-white text-lg font-bold uppercase tracking-tighter">Firemný web</span>
+                  <span className="text-2xl font-sans">od 890 €</span>
                 </div>
               </div>
-              <div className="space-y-2">
-                <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Custom build</p>
-                <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
-                  <span className="text-white text-xl font-bold uppercase tracking-tighter">Individuálne riešenia</span>
-                  <span className="text-2xl font-giaza italic">na mieru</span>
+              <div>
+                <p className="text-gray-500 font-black text-xs tracking-widest uppercase mb-1">Custom build</p>
+                <div className="flex justify-between items-end gap-4 border-b border-white/10 pb-3">
+                  <span className="text-white text-lg font-bold uppercase tracking-tighter">Individuálne riešenia</span>
+                  <span className="text-2xl font-sans">na mieru</span>
                 </div>
               </div>
             </div>
           </div>
-
           {/* Sociálne siete */}
-          <div className="group space-y-10">
-            <div className="flex items-center gap-4">
-               <LiIcon size={32} />
-               <h3 className="text-white font-giaza text-4xl italic">Sociálne siete</h3>
+          <div className="rounded-3xl border border-[#F43182]/30 bg-[#18181b] p-10 flex flex-col gap-8 shadow-lg">
+            <div className="flex items-center gap-4 mb-2">
+              <LiIcon size={32} />
+              <h3 className="text-white text-4xl font-sans">Sociálne siete</h3>
             </div>
-            <div className="space-y-8 border-l border-white/10 pl-8">
-              <div className="space-y-2">
-                <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Mesačný paušál</p>
-                <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
-                  <span className="text-white text-xl font-bold uppercase tracking-tighter">Správa profilu</span>
-                  <span className="text-2xl font-giaza italic text-right leading-none">od 190 €<br/><small className="text-[10px] not-italic opacity-50 uppercase font-black">/ mesiac</small></span>
+            <div className="flex flex-col gap-6">
+              <div>
+                <p className="text-gray-500 font-black text-xs tracking-widest uppercase mb-1">Mesačný paušál</p>
+                <div className="flex justify-between items-end gap-4 border-b border-white/10 pb-3">
+                  <span className="text-white text-lg font-bold uppercase tracking-tighter">Správa profilu</span>
+                  <span className="text-2xl font-sans text-right leading-none">od 190 €<br/><small className="text-[10px] not-italic opacity-50 uppercase font-black">/ mesiac</small></span>
                 </div>
               </div>
-              <div className="space-y-2">
-                <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Video obsah</p>
-                <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
-                  <span className="text-white text-xl font-bold uppercase tracking-tighter">Reels balíčky</span>
-                  <span className="text-2xl font-giaza italic">od 390 €</span>
+              <div>
+                <p className="text-gray-500 font-black text-xs tracking-widest uppercase mb-1">Video obsah</p>
+                <div className="flex justify-between items-end gap-4 border-b border-white/10 pb-3">
+                  <span className="text-white text-lg font-bold uppercase tracking-tighter">Reels balíčky</span>
+                  <span className="text-2xl font-sans">od 390 €</span>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* Fotografia & Grafika */}
-          <div className="group space-y-10">
-            <div className="flex items-center gap-4">
-               <LiIcon size={32} />
-               <h3 className="text-white font-giaza text-4xl italic">Produkcia</h3>
+          {/* Produkcia */}
+          <div className="rounded-3xl border border-[#F43182]/30 bg-[#18181b] p-10 flex flex-col gap-8 shadow-lg">
+            <div className="flex items-center gap-4 mb-2">
+              <LiIcon size={32} />
+              <h3 className="text-white text-4xl font-sans">Produkcia</h3>
             </div>
-            <div className="space-y-8 border-l border-white/10 pl-8">
-              <div className="space-y-2">
-                <p className="text-gray-500 font-black text-[10px] tracking-widest uppercase">Vizuálna identita</p>
-                <div className="flex justify-between items-end gap-4 border-b border-white/5 pb-4 group-hover:border-[#F43182]/30 transition-colors">
-                  <span className="text-white text-xl font-bold uppercase tracking-tighter">Fotografia & grafika</span>
+            <div className="flex flex-col gap-6">
+              <div>
+                <p className="text-gray-500 font-black text-xs tracking-widest uppercase mb-1">Vizuálna identita</p>
+                <div className="flex justify-between items-end gap-4 border-b border-white/10 pb-3">
+                  <span className="text-white text-lg font-bold uppercase tracking-tighter">Fotografia & grafika</span>
                   <span className="text-sm font-black uppercase text-right leading-tight">podľa rozsahu a typu projektu</span>
                 </div>
               </div>
-              <div className="pt-8">
+              <div className="pt-6">
                 <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-[#F43182]/20 text-center">
-                    <p className="text-white font-bold text-sm uppercase tracking-widest leading-relaxed">
-                        Neplatíš za zbytočnosti.<br/>
-                        <span className="text-[#F43182]">Platíš za výsledok.</span>
-                    </p>
+                  <p className="text-white font-bold text-sm uppercase tracking-widest leading-relaxed">
+                    Neplatíš za zbytočnosti.<br/>
+                    <span className="text-[#F43182]">Platíš za výsledok.</span>
+                  </p>
                 </div>
               </div>
             </div>

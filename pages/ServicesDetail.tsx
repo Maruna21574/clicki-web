@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface SubService {
   name: string;
@@ -17,8 +18,8 @@ interface ServiceItem {
 const servicesData: ServiceItem[] = [
   {
     id: "01",
-    title: "WEB ARCHITECTURE",
-    category: "UX/UI & DEV",
+    title: "Webová architektúra",
+    category: "UX/UI & vývoj",
     image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800",
     subServices: [
       { name: "UX/UI Design", desc: "Tvoríme intuitívne rozhrania, ktoré vedú užívateľa k cieľu prirodzenou cestou." },
@@ -29,8 +30,8 @@ const servicesData: ServiceItem[] = [
   },
   {
     id: "02",
-    title: "IDENTITY & BRANDING",
-    category: "DESIGN & IDENTITY",
+    title: "Identita & branding",
+    category: "Dizajn & identita",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800",
     subServices: [
       { name: "Logo Design", desc: "Vytvárame symboly, ktoré nesú DNA vašej značky a sú rozpoznateľné v zlomku sekundy." },
@@ -41,8 +42,8 @@ const servicesData: ServiceItem[] = [
   },
   {
     id: "03",
-    title: "SOCIAL GROWTH",
-    category: "MARKETING & CONTENT",
+    title: "Sociálne siete & content",
+    category: "Marketing & obsah",
     image: "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=800",
     subServices: [
       { name: "Content Creation", desc: "Tvoríme vizuály a texty, ktoré v nekonečnom feede okamžite pritiahnu pozornosť." },
@@ -53,8 +54,8 @@ const servicesData: ServiceItem[] = [
   },
   {
     id: "04",
-    title: "PRODUCTION",
-    category: "PHOTO & VIDEO",
+    title: "Produkcia",
+    category: "Foto & video",
     image: "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?q=80&w=800",
     subServices: [
       { name: "Produktové fotenie", desc: "Zachytávame detaily a kvalitu vašich produktov tak, aby vynikla ich jedinečnosť." },
@@ -89,9 +90,18 @@ export const ServicesDetail: React.FC = () => {
                 {/* ID and Title */}
                 <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-6 md:gap-10 w-full lg:w-auto">
                   <span className="font-giaza text-[#F43182] text-base sm:text-xl mt-2 sm:mt-4">/ {service.id}</span>
-                  <h2 className="font-giaza text-lg sm:text-2xl md:text-5xl lg:text-[4vw] font-black text-white leading-tight uppercase transition-all duration-500">
+                  <Link
+                    to={
+                      service.title === 'Webová architektúra' ? '/sluzby/web-architecture' :
+                      service.title === 'Identita & branding' ? '/sluzby/identity-branding' :
+                      service.title === 'Sociálne siete & content' ? '/sluzby/social-growth' :
+                      service.title === 'Produkcia' ? '/sluzby/production' :
+                      '#'
+                    }
+                    className="font-giaza text-lg sm:text-2xl md:text-5xl lg:text-[4vw] font-black text-white leading-tight uppercase transition-all duration-500 hover:text-[#F43182] underline underline-offset-8"
+                  >
                     {service.title}
-                  </h2>
+                  </Link>
                 </div>
 
                 {/* Right Side Info */}
@@ -107,51 +117,53 @@ export const ServicesDetail: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Static Image Preview - Appears on hover in a fixed spot for the row */}
-                <div className={`hidden lg:block absolute right-1/4 top-1/2 -translate-y-1/2 pointer-events-none z-[30] transition-all duration-700 w-[200px] h-[280px] overflow-hidden rounded-xl border border-white/10 ${activeId === service.id ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-95 translate-x-10'}`}> 
-                    <img 
-                        src={service.image} 
-                        className="w-full h-full object-cover grayscale" 
-                        alt={service.title}
-                    />
-                    <div className="absolute inset-0 bg-black/20"></div>
-                </div>
-                {/* Mobile image preview */}
-                <div className={`block lg:hidden w-full mt-4 transition-all duration-700 ${activeId === service.id ? 'opacity-100 scale-100' : 'opacity-80 scale-95'}`}>
-                  <img 
-                    src={service.image}
-                    className="w-full h-40 object-cover grayscale rounded-xl border border-white/10"
-                    alt={service.title}
-                  />
-                </div>
               </div>
 
               {/* Expanded Detail (Sub-services) */}
                 <div className={`overflow-hidden transition-all duration-700 ease-in-out bg-[#050505]/50 ${expandedId === service.id ? 'max-h-[1000px] opacity-100 py-10 sm:py-12 md:py-16 px-4 sm:px-8 md:px-12' : 'max-h-0 opacity-0 px-4 sm:px-8 md:px-12'}`}>
-                <div className="lg:pl-32 pr-6">
-                  <p className="text-[#F43182] font-black text-[10px] tracking-[0.4em] uppercase mb-12 opacity-50 text-left">ZAMERANIE (KLIKNITE PRE DETAILY)</p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    {service.subServices.map((sub, i) => (
-                      <div 
-                        key={i} 
-                        className="flex flex-col gap-4 group/sub cursor-pointer text-left"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setActiveSubService(activeSubService?.subName === sub.name ? null : {serviceId: service.id, subName: sub.name});
-                        }}
-                      >
-                        <div className={`h-[1px] transition-all duration-700 ${activeSubService?.subName === sub.name ? 'w-full bg-[#F43182]' : 'w-8 bg-white/20 group-hover/sub:w-16 group-hover/sub:bg-[#F43182]'}`}></div>
-                        <span className={`text-sm font-bold tracking-[0.1em] uppercase transition-colors duration-500 ${activeSubService?.subName === sub.name ? 'text-[#F43182]' : 'text-white/60 group-hover/sub:text-white'}`}>
-                          {sub.name}
-                        </span>
-                                
-                        <div className={`overflow-hidden transition-all duration-500 ${activeSubService?.subName === sub.name ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
-                          <p className="text-gray-500 text-xs font-medium leading-relaxed uppercase tracking-wider">
-                            {sub.desc}
-                          </p>
+                <div className="lg:pl-8 pr-4">
+                  <p className="text-[#F43182] font-black text-xs tracking-[0.3em] uppercase mb-8 text-left">ZAMERANIE (kliknite pre detaily)</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {service.subServices.map((sub, i) => {
+                      // Ak je aktívna podslužba pre túto službu, otvorená je len tá, inak je otvorená prvá
+                      const isActive = activeSubService && activeSubService.serviceId === service.id
+                        ? activeSubService.subName === sub.name
+                        : i === 0;
+                      return (
+                        <div
+                          key={i}
+                          className="flex flex-col gap-4 group/sub cursor-pointer text-left"
+                          onClick={e => {
+                            e.stopPropagation();
+                            setActiveSubService({ serviceId: service.id, subName: sub.name });
+                          }}
+                        >
+                          <div className={`h-[2px] transition-all duration-700 ${isActive ? 'w-full bg-[#F43182]' : 'w-8 bg-white/40 group-hover/sub:w-16 group-hover/sub:bg-[#F43182]'}`}></div>
+                          <span className={`text-base font-extrabold tracking-wide uppercase transition-colors duration-500 ${isActive ? 'text-[#F43182] drop-shadow' : 'text-white/90 group-hover/sub:text-[#F43182]'}`}>
+                            {sub.name}
+                          </span>
+                          <div className={`overflow-hidden transition-all duration-500 ${isActive ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'}`}>
+                            <p className="text-gray-200 text-sm font-semibold leading-relaxed tracking-wide bg-black/70 rounded-lg p-3 border-l-4 border-[#F43182]">
+                              {sub.desc}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
+                  </div>
+                  <div className="mt-8 flex justify-end">
+                    <Link
+                      to={
+                        service.title === 'Webová architektúra' ? '/sluzby/web-architecture' :
+                        service.title === 'Identita & branding' ? '/sluzby/identity-branding' :
+                        service.title === 'Sociálne siete & content' ? '/sluzby/social-growth' :
+                        service.title === 'Produkcia' ? '/sluzby/production' :
+                        '#'
+                      }
+                      className="inline-block px-8 py-3 rounded-full bg-[#F43182] text-white font-black uppercase tracking-widest text-xs shadow-lg hover:bg-white hover:text-[#F43182] border-2 border-[#F43182] transition-all duration-300"
+                    >
+                      Zobraziť detail služby
+                    </Link>
                   </div>
                 </div>
                 </div>

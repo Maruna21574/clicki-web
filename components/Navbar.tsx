@@ -64,30 +64,12 @@ export const Navbar: React.FC = () => {
             <span className={`absolute -bottom-1 left-0 h-[1px] bg-[#F43182] transition-all duration-500 ${location.pathname === '/cenik' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
           </Link>
           <Link
-            to="/changelog"
-            className={`transition-all duration-300 relative group ${location.pathname === '/changelog' ? 'text-[#F43182]' : 'text-white hover:text-[#F43182]'}`}
-          >
-            Changelog
-            <span className={`absolute -bottom-1 left-0 h-[1px] bg-[#F43182] transition-all duration-500 ${location.pathname === '/changelog' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-          </Link>
-          <Link
             to="/kontakt"
             className="px-8 py-3 bg-[#F43182] text-white rounded-full hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105"
           >
             KONTAKT
           </Link>
         </div>
-
-        {/* Hamburger for mobile */}
-        <button
-          className="lg:hidden flex flex-col justify-center items-center w-12 h-12 z-[110] relative group"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label="Otvoriť menu"
-        >
-          <span className={`block h-0.5 w-8 bg-white rounded transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block h-0.5 w-8 bg-white rounded transition-all duration-300 my-1 ${mobileOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block h-0.5 w-8 bg-white rounded transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-        </button>
 
         {/* Mobile nav overlay */}
         <div
@@ -113,13 +95,6 @@ export const Navbar: React.FC = () => {
             onClick={() => setMobileOpen(false)}
           >
             Cenník
-          </Link>
-          <Link
-            to="/changelog"
-            className={`text-sm font-black uppercase tracking-widest transition-all ${location.pathname === '/changelog' ? 'text-[#F43182]' : 'text-white hover:text-[#F43182]'}`}
-            onClick={() => setMobileOpen(false)}
-          >
-            Changelog
           </Link>
           <Link
             to="/kontakt"

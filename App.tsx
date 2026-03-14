@@ -1,3 +1,4 @@
+import { ServiceDetail } from './pages/service/ServiceDetail';
 
 
 import React, { useEffect } from 'react';
@@ -6,10 +7,10 @@ import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { ServicesDetail } from './pages/ServicesDetail';
 import { PortfolioDetail } from './pages/PortfolioDetail';
+import { PortfolioProjectDetail } from './pages/PortfolioProjectDetail';
 import { Pricing } from './pages/Pricing';
 import { Footer } from './components/Footer';
 import { Contact } from './components/Contact';
-import { Changelog } from './pages/Changelog';
 
 
 
@@ -31,11 +32,12 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/sluzby" element={<ServicesDetail />} />
+            <Route path="/sluzby/:slug" element={<ServiceDetail />} />
             <Route path="/portfolio" element={<PortfolioDetail />} />
+            <Route path="/portfolio/:slug" element={<PortfolioProjectDetail />} />
          
             <Route path="/cenik" element={<Pricing />} />
             <Route path="/kontakt" element={<div className="pt-20"><Contact /></div>} />
-            <Route path="/changelog" element={<Changelog />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

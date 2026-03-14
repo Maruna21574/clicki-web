@@ -38,12 +38,8 @@ export const Home: React.FC = () => {
             </Link>
             <div className="max-w-md">
                 <p className="text-gray-200 font-medium leading-relaxed uppercase text-[10px] tracking-widest mb-4">
-                    Sme CLICKI. Tvoríme vizuálne svety, ktoré v digitálnom priestore nielen prežívajú, ale dominujú.
+                  Sme CLICKI. Pomáhame značkám rásť v digitále.
                 </p>
-                <div className="flex items-center gap-4 text-[#F43182] font-black text-[10px] uppercase tracking-widest cursor-pointer group" onClick={() => (window as any).setAIAgentOpen?.(true)}>
-                    <span className="w-8 h-px bg-current transition-all group-hover:w-12"></span>
-                    Vyskúšajte nášho AI konzultanta
-                </div>
             </div>
           </div>
         </div>

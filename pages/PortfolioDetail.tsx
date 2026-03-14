@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface Project {
   id: string;
@@ -69,19 +70,14 @@ const projects: Project[] = [
 ];
 
 export const PortfolioDetail: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [filter, setFilter] = useState('všetko');
-
-  // Get unique categories from projects
+  const [filter, setFilter] = React.useState('všetko');
   const categories = Array.from(new Set(projects.map(p => p.cat)));
-
-  const filteredProjects = filter === 'všetko' 
-    ? projects 
-    : projects.filter(p => 
-        p.cat.toLowerCase() === filter.toLowerCase() || 
+  const filteredProjects = filter === 'všetko'
+    ? projects
+    : projects.filter(p =>
+        p.cat.toLowerCase() === filter.toLowerCase() ||
         p.tags.some(t => t.toLowerCase().includes(filter.toLowerCase()))
       );
-
   return (
     <div className="bg-black min-h-screen pt-80 pb-40 px-6 lg:px-20 overflow-hidden text-[#F43182]">
       <div className="max-w-[1600px] mx-auto">
@@ -120,15 +116,15 @@ export const PortfolioDetail: React.FC = () => {
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
           {filteredProjects.map((p) => (
-            <div 
-              key={p.id} 
-              onClick={() => setSelectedProject(p)}
+            <Link
+              key={p.id}
+              to={p.slug ? `/portfolio/${p.slug}` : '#'}
               className="group relative cursor-pointer"
             >
               <div className="aspect-[3/4] overflow-hidden rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 group-hover:border-[#F43182]/40 transition-all duration-700">
-                <img 
-                  src={p.img} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
+                <img
+                  src={p.img}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                   alt={p.title}
                 />
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-start p-8">
@@ -141,65 +137,21 @@ export const PortfolioDetail: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
               <div className="mt-6 flex items-center justify-between px-4">
-                 <div className="space-y-1">
-                    <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest">{p.cat}</p>
-                    <h4 className="text-lg font-giaza text-white group-hover:text-[#F43182] transition-colors">{p.title}</h4>
-                 </div>
-                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-[#F43182] group-hover:border-[#F43182] transition-all">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                 </div>
+                <div className="space-y-1">
+                  <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest">{p.cat}</p>
+                  <h4 className="text-lg font-giaza text-white group-hover:text-[#F43182] transition-colors">{p.title}</h4>
+                </div>
+                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-[#F43182] group-hover:border-[#F43182] transition-all">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
 
-      {/* Project Detail Overlay */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-[200] bg-black/98 backdrop-blur-3xl overflow-y-auto pt-24 px-6">
-          <button 
-            onClick={() => setSelectedProject(null)}
-            className="fixed top-10 right-10 z-[210] p-4 bg-white/5 hover:bg-[#F43182] rounded-full transition-all group"
-          >
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-
-          <div className="max-w-5xl mx-auto pb-40">
-            <div className="mb-20">
-                <span className="text-[#F43182] font-black tracking-[0.5em] text-xs uppercase mb-6 block">{selectedProject.cat}</span>
-                <h2 className="font-giaza text-7xl md:text-9xl text-white mb-10">{selectedProject.title}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-20 items-start">
-                    <div className="md:col-span-2">
-                        <p className="text-gray-400 text-2xl font-giaza leading-relaxed uppercase tracking-wider">
-                            {selectedProject.desc}
-                        </p>
-                    </div>
-                    <div className="space-y-8 pt-4">
-                        <div className="space-y-4">
-                            <p className="text-[#F43182] text-[10px] font-black uppercase tracking-widest">Služby pre klienta</p>
-                            <div className="flex flex-wrap gap-2">
-                                {selectedProject.tags.map(t => (
-                                    <span key={t} className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs text-white uppercase font-bold tracking-tighter">{t}</span>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="pt-8 border-t border-white/10">
-                            <button className="bg-white text-black px-10 py-4 rounded-full font-black text-xs uppercase tracking-widest hover:bg-[#F43182] hover:text-white transition-all w-full">Mám záujem</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="space-y-8">
-              <div className="rounded-[3rem] overflow-hidden border border-white/5">
-                <img src={selectedProject.img} className="w-full h-auto" />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Overlay removed, detail is now a separate page */}
     </div>
   );
 };
