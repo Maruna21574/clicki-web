@@ -21,5 +21,7 @@ export const niluniza = {
     "Študenti univerzity",
     "Zamestnanci univerzity"
   ],
-  tags: ["Web", "Uniza", "Intranet", "UX/UI"]
+  tags: ["Web", "Uniza", "Intranet", "UX/UI"],
+  webUrl: undefined,
+  logo: undefined
 };

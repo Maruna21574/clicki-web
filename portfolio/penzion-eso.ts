@@ -22,5 +22,7 @@ export const penzionEso = {
     "Hostia penziónu",
     "Rodiny a turisti"
   ],
-  tags: ["Web", "Rezervácie", "Galéria", "UX/UI"]
+  tags: ["Web", "Rezervácie", "Galéria", "UX/UI"],
+  webUrl: undefined,
+  logo: undefined
 };

@@ -21,5 +21,7 @@ export const targosSk = {
     "Firemní klienti",
     "Záujemcovia o služby"
   ],
-  tags: ["Web", "Služby", "Referencie", "Dizajn"]
+  tags: ["Web", "Služby", "Referencie", "Dizajn"],
+  webUrl: undefined,
+  logo: undefined
 };

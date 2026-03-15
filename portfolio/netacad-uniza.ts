@@ -3,7 +3,7 @@ export const netacadUniza = {
   slug: "netacad-uniza",
   title: "NetAcad Uniza",
   cat: "WEBY",
-  img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800",
+  // img: "/img/NetAcad/NetAcad_hero.webp", // slider bude v úvode namiesto tohto obrázka
   type: "Vzdelávacia platforma",
   about: `Vzdelávacia platforma pre Cisco akadémiu a inštruktorské centrum na Žilinskej univerzite. Zameraná na kurzy, školenia a certifikácie v oblasti sieťových technológií, bezpečnosti, Linux OS a IoT.`,
   client: `Cisco Sieťová akadémia a ITC pri FRI ŽU v Žiline. Viac ako 20-ročná tradícia, jedno z troch ITC na Slovensku.`,
@@ -26,5 +26,13 @@ export const netacadUniza = {
     "Zamestnanci komerčných spoločností"
   ],
   tags: ["Web", "Vzdelávanie", "Cisco", "Uniza", "NetAcad", "UX/UI", "SEO", "Programovanie", "Dizajn"],
-  webUrl: "https://netacad.uniza.sk/"
+  webUrl: "https://netacad.uniza.sk/",
+  logo: '/img/NetAcad/NetAcad_logo.webp',
+  gallery: [
+    '/img/NetAcad/NetAcad_kurzy.webp',
+    '/img/NetAcad/NetAcad_hero.webp',
+    '/img/NetAcad/NetAcad_prihlaska.webp',
+    '/img/NetAcad/NetAcad_kurz.webp',
+    
+  ]
 };

@@ -17,7 +17,7 @@ const projects: Project[] = [
       slug: "netacad-uniza",
       title: "NetAcad Uniza", 
       cat: "WEBY", 
-      img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800",
+      img: "/img/NetAcad/NetAcad_hero.webp",
       desc: `Typ webu: Vzdelávacia platforma pre Cisco akadémiu a inštruktorské centrum na Žilinskej univerzite.\n\nZameranie: Vzdelávanie v oblasti sieťových technológií, bezpečnosti, Linux OS a IoT. Organizácia kurzov, školení a certifikácií pre študentov, učiteľov aj firmy.\n\nSlužby, ktoré som pre nich realizoval: kompletný dizajn, UX/UI návrh, programovanie frontendu aj backendu, SEO optimalizácia, generovanie mailov, kontaktné formuláre, podpora a rozvoj webu.\n\nWebová platforma pre študentov a lektorov Cisco akadémie na Žilinskej univerzite. Moderný dizajn, prehľadné rozhranie a integrácia s e-learningom.\n\nSme Cisco Sieťová Akadémia s viac ako 20-ročnou tradíciou, pôsobiaca pri Katedre informačných sietí FRI ŽU. Ako jedno z troch Inštruktorských tréningových centier (ITC) na Slovensku ponúkame akademické aj komerčné certifikované kurzy NetAcad. Pripravujeme študentov na získanie Cisco certifikátov a poskytujeme školenia v oblastiach IP sietí, bezpečnosti, Linux OS a IoT.\n\nPre koho sú kurzy určené?\n- Študenti, doktorandi, učitelia\n- Zamestnanci komerčných spoločností\n\nVýhody: moderné laboratóriá, skúsení inštruktori, praktické zručnosti, certifikácie Cisco.`,
       tags: ["Web", "Vzdelávanie", "Cisco", "Uniza", "NetAcad", "UX/UI", "SEO", "Programovanie", "Dizajn"]
     },

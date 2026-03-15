@@ -21,5 +21,7 @@ export const exteraMartin = {
     "Záujemcovia o kurzy",
     "Študenti a firmy"
   ],
-  tags: ["Web", "Vzdelávanie", "Kurzy", "Prezentácia"]
+  tags: ["Web", "Vzdelávanie", "Kurzy", "Prezentácia"],
+  webUrl: undefined,
+  logo: undefined
 };

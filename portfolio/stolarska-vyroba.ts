@@ -22,5 +22,7 @@ export const stolarskaVyroba = {
     "Zákazníci hľadajúci stolárske služby",
     "Firmy a jednotlivci"
   ],
-  tags: ["Web", "Portfólio", "Remeslo", "Kontakt"]
+  tags: ["Web", "Portfólio", "Remeslo", "Kontakt"],
+  webUrl: undefined,
+  logo: undefined
 };
