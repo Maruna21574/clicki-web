@@ -1,62 +1,20 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { netacadUniza } from '../portfolio/netacad-uniza';
+import { niluniza } from '../portfolio/niluniza';
+import { penzionEso } from '../portfolio/penzion-eso';
+import { exteraMartin } from '../portfolio/extera-martin';
+import { stolarskaVyroba } from '../portfolio/stolarska-vyroba';
+import { targosSk } from '../portfolio/targos-sk';
 
 // Rovnaké projekty ako v PortfolioDetail
 const projects = [
-    { 
-      id: "01",
-      slug: "netacad-uniza",
-      title: "NetAcad Uniza", 
-      cat: "WEBY", 
-      img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800",
-      desc: "Webová platforma pre študentov a lektorov Cisco akadémie na Žilinskej univerzite. Moderný dizajn, prehľadné rozhranie a integrácia s e-learningom.",
-      tags: ["Web", "Uniza", "NetAcad", "UX/UI"]
-    },
-    { 
-      id: "02",
-      slug: "niluniza",
-      title: "NilUniza", 
-      cat: "WEBY", 
-      img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=800",
-      desc: "Informačný portál pre študentov a zamestnancov NilUniza. Dôraz na jednoduchosť, rýchlosť a dostupnosť informácií.",
-      tags: ["Web", "Uniza", "Intranet", "UX/UI"]
-    },
-    {
-      id: "09",
-      slug: "penzion-eso",
-      title: "Penzión Eso",
-      cat: "WEBY",
-      img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800",
-      desc: "Moderný web pre rodinný penzión v srdci prírody. Rezervácie, galéria a prehľadné informácie pre hostí.",
-      tags: ["Web", "Rezervácie", "Galéria", "UX/UI"]
-    },
-    {
-      id: "10",
-      slug: "extera-martin",
-      title: "Extera Martin",
-      cat: "WEBY",
-      img: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?q=80&w=800",
-      desc: "Webová prezentácia pre Extera Martin – odborníkov na vzdelávanie a kurzy. Dôraz na jednoduchosť a informovanosť.",
-      tags: ["Web", "Vzdelávanie", "Kurzy", "Prezentácia"]
-    },
-    {
-      id: "11",
-      slug: "stolarska-vyroba",
-      title: "Stolárska výroba",
-      cat: "WEBY",
-      img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=800",
-      desc: "Firemný web pre stolársku výrobu s portfóliom realizácií a kontaktným formulárom.",
-      tags: ["Web", "Portfólio", "Remeslo", "Kontakt"]
-    },
-    {
-      id: "12",
-      slug: "targos-sk",
-      title: "targos.sk",
-      cat: "WEBY",
-      img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=800",
-      desc: "Webová stránka pre spoločnosť targos.sk – prehľad služieb, referencie a moderný dizajn.",
-      tags: ["Web", "Služby", "Referencie", "Dizajn"]
-    },
+  netacadUniza,
+  niluniza,
+  penzionEso,
+  exteraMartin,
+  stolarskaVyroba,
+  targosSk,
 ];
 
 export const PortfolioProjectDetail: React.FC = () => {
@@ -74,22 +32,79 @@ export const PortfolioProjectDetail: React.FC = () => {
         <button onClick={() => navigate(-1)} className="text-xs text-[#F43182] uppercase tracking-widest font-bold hover:underline mb-8">← Späť na portfólio</button>
         <span className="text-[#F43182] font-black tracking-[0.5em] text-xs uppercase mb-6 block">{project.cat}</span>
         <h2 className="font-giaza text-7xl md:text-9xl text-white mb-10">{project.title}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-20 items-start mb-20">
-          <div className="md:col-span-2">
-            <p className="text-gray-400 text-2xl font-giaza leading-relaxed uppercase tracking-wider">{project.desc}</p>
-          </div>
-          <div className="space-y-8 pt-4">
-            <p className="text-[#F43182] text-[10px] font-black uppercase tracking-widest">Služby pre klienta</p>
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map(t => (
-                <span key={t} className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs text-white uppercase font-bold tracking-tighter">{t}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="rounded-[3rem] overflow-hidden border border-white/5 mb-8">
+        <div className="rounded-[3rem] overflow-hidden border border-white/5 mb-12">
           <img src={project.img} className="w-full h-auto" alt={project.title} />
         </div>
+
+        {/* Sekcia: O projekte */}
+        {project.about && (
+          <section className="mb-10">
+            <h3 className="text-2xl text-white font-bold mb-2">O projekte</h3>
+            <p className="text-gray-300 text-lg">{project.about}</p>
+          </section>
+        )}
+
+        {/* Sekcia: Klient */}
+        {project.client && (
+          <section className="mb-10">
+            <h3 className="text-2xl text-white font-bold mb-2">Klient</h3>
+            <p className="text-gray-300 text-lg">{project.client}</p>
+          </section>
+        )}
+
+        {/* Sekcia: Zameranie */}
+        {project.type && (
+          <section className="mb-10">
+            <h3 className="text-2xl text-white font-bold mb-2">Typ a zameranie</h3>
+            <p className="text-gray-300 text-lg mb-2">{project.type}</p>
+            {project.highlights && (
+              <ul className="list-disc pl-6 text-gray-400 text-base">
+                {project.highlights.map((h, i) => <li key={i}>{h}</li>)}
+              </ul>
+            )}
+          </section>
+        )}
+
+        {/* Sekcia: Služby */}
+        {project.services && (
+          <section className="mb-10">
+            <h3 className="text-2xl text-white font-bold mb-2">Služby pre klienta</h3>
+            <ul className="list-disc pl-6 text-gray-400 text-base">
+              {project.services.map((s, i) => <li key={i}>{s}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {/* Sekcia: Pre koho */}
+        {project.forWhom && (
+          <section className="mb-10">
+            <h3 className="text-2xl text-white font-bold mb-2">Pre koho je projekt určený</h3>
+            <ul className="list-disc pl-6 text-gray-400 text-base">
+              {project.forWhom.map((f, i) => <li key={i}>{f}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {/* Sekcia: Tagy */}
+        <div className="space-y-8 pt-4 mb-10">
+          <p className="text-[#F43182] text-[10px] font-black uppercase tracking-widest">Tagy</p>
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map(t => (
+              <span key={t} className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-xs text-white uppercase font-bold tracking-tighter">{t}</span>
+            ))}
+          </div>
+        </div>
+
+        {/* Sekcia: Ukážka webu */}
+        {project.webUrl && (
+          <section className="mb-10">
+            <h3 className="text-2xl text-white font-bold mb-2">Ukážka webu</h3>
+            <a href={project.webUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-[#F43182] text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-[#d11a6b] transition-colors">Navštíviť web</a>
+            <div className="mt-6 rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+              <iframe src={project.webUrl} title="Ukážka webu" className="w-full min-h-[500px] bg-white" style={{border:0}} loading="lazy" />
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );

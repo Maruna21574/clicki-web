@@ -13,6 +13,13 @@ const serviceDetails = {
       { name: 'Optimalizácia rýchlosti', desc: 'Zabezpečujeme bleskové načítanie, ktoré je kľúčové pre SEO aj konverzie.' },
     ],
     image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800',
+    process: [
+      'Úvodná konzultácia a analýza potrieb klienta.',
+      'Návrh riešenia a UX/UI dizajnu.',
+      'Vývoj a implementácia webu na mieru.',
+      'Testovanie, optimalizácia a spustenie.',
+      'Podpora a ďalší rozvoj podľa potreby.'
+    ],
   },
   'identity-branding': {
     title: 'Identita & Branding',
@@ -24,6 +31,13 @@ const serviceDetails = {
       { name: 'Tlačoviny', desc: 'Prenášame digitálnu identitu do hmatateľnej podoby s dôrazom na prémiové materiály.' },
     ],
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800',
+    process: [
+      'Zistenie hodnôt a cieľov značky.',
+      'Tvorba návrhov loga a vizuálnej identity.',
+      'Pripomienkovanie a finalizácia dizajnu.',
+      'Dodanie brand manuálu a podkladov.',
+      'Podpora pri implementácii identity.'
+    ],
   },
   'social-growth': {
     title: 'Sociálne siete & Content',
@@ -35,6 +49,13 @@ const serviceDetails = {
       { name: 'Správa reklám', desc: 'Precízne cielenie a optimalizácia rozpočtov pre dosiahnutie reálnych biznis výsledkov.' },
     ],
     image: 'https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=800',
+    process: [
+      'Analýza cieľovej skupiny a kanálov.',
+      'Nastavenie stratégie a obsahového plánu.',
+      'Tvorba a publikácia obsahu.',
+      'Správa reklám a optimalizácia výkonu.',
+      'Reportovanie výsledkov a odporúčania.'
+    ],
   },
   'production': {
     title: 'Produkcia',
@@ -45,6 +66,13 @@ const serviceDetails = {
       { name: 'Event coverage', desc: 'Dokumentujeme dôležité momenty vašej firmy s dôrazom na atmosféru a emóciu.' },
     ],
     image: 'https://images.unsplash.com/photo-1493119508027-2b584f234d6c?q=80&w=800',
+    process: [
+      'Konzultácia a pochopenie potrieb klienta.',
+      'Plánovanie a príprava produkcie.',
+      'Realizácia fotenia alebo natáčania.',
+      'Post-produkcia a úprava materiálov.',
+      'Odovzdanie finálnych výstupov.'
+    ],
   },
 };
 
@@ -76,6 +104,17 @@ export const ServiceDetail: React.FC = () => {
             </div>
           ))}
         </div>
+        {/* Sekcia: Ako postupujeme */}
+        {detail.process && (
+          <div className="w-full max-w-3xl mt-16">
+            <h2 className="text-[#F43182] font-black text-xs tracking-[0.4em] uppercase mb-6 w-full text-left">Ako postupujeme</h2>
+            <ol className="list-decimal pl-8 text-gray-200 text-base md:text-lg flex flex-col gap-2">
+              {detail.process.map((step, idx) => (
+                <li key={idx}>{step}</li>
+              ))}
+            </ol>
+          </div>
+        )}
       </div>
     </div>
   );
